@@ -38,5 +38,20 @@ namespace TestMax
                 Console.WriteLine("{0} is Maximum Number between {1} and {2}", third, first, second);
             }
         }
+        public static void MaxString(string first, string second, string third)
+        {
+            if (first.CompareTo(second) >= 0 && first.CompareTo(third) >= 0)
+            {
+                Console.WriteLine("{0} is Maximum between {1} and {2}", first, second, third);
+            }
+            else if (second.CompareTo(first) >= 0 && second.CompareTo(third) >= 0)
+            {
+                Console.WriteLine("{0} is Maximum between {1} and {2}", second, first, third);
+            }
+            else
+            {
+                Console.WriteLine("{0} is Maximum between {1} and {2}", third, first, second);
+            }
+        }
     }
 }
