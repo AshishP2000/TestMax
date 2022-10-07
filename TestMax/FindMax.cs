@@ -6,52 +6,39 @@ using System.Threading.Tasks;
 
 namespace TestMax
 {
-    public class FindMax
+    public class FindMax<T> where T : IComparable<T>
     {
-        public static void MaxInt(int first, int second, int third)
+        public T first, second, third;
+
+        public FindMax(T first,T second,T third)
         {
-            if (first.CompareTo(second) >= 0 && first.CompareTo(third) >= 0)
+            this.first = first;
+            this.second = second;
+            this.third = third;
+        }
+
+        public static T Max (T first, T second, T third) 
+        {
+            if (first.CompareTo(second)>= 0 && first.CompareTo(third) >= 0)
             {
-                Console.WriteLine("{0} is Maximum Number between {1} and {2}", first, second, third);
+                return first;
             }
             else if (second.CompareTo(first) >= 0 && second.CompareTo(third) >= 0)
             {
-                Console.WriteLine("{0} is Maximum Number between {1} and {2}", second, first, third);
+                return second;
             }
             else
             {
-                Console.WriteLine("{0} is Maximum Number between {1} and {2}", third, first, second);
+                return third;
             }
         }
-        public static void MaxFloat(float first, float second, float third)
+
+        public T MaxMethod()
         {
-            if (first.CompareTo(second) >= 0 && first.CompareTo(third) >= 0)
-            {
-                Console.WriteLine("{0} is Maximum Number between {1} and {2}", first, second, third);
-            }
-            else if (second.CompareTo(first) >= 0 && second.CompareTo(third) >= 0)
-            {
-                Console.WriteLine("{0} is Maximum Number between {1} and {2}", second, first, third);
-            }
-            else
-            {
-                Console.WriteLine("{0} is Maximum Number between {1} and {2}", third, first, second);
-            }
+            T max = FindMax<T>.Max(this.first,this.second,this.third);
+            return max;
         }
-        public static void MaxString(string first, string second, string third)
-        {
-            if (first.CompareTo(second) >= 0 && first.CompareTo(third) >= 0)
-            {
-                Console.WriteLine("{0} is Maximum between {1} and {2}", first, second, third);
-            }
-            else if (second.CompareTo(first) >= 0 && second.CompareTo(third) >= 0)
-            {
-                Console.WriteLine("{0} is Maximum between {1} and {2}", second, first, third);
-            }
-            else
-            {
-                Console.WriteLine("{0} is Maximum between {1} and {2}", third, first, second);
-            }
-        }
+
+        
     }
 }
