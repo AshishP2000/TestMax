@@ -8,35 +8,35 @@ namespace TestMax
 {
     public class FindMax<T> where T : IComparable<T>
     {
-        public T first, second, third;
+        public T[] value;
 
-        public FindMax(T first,T second,T third)
+        public FindMax(T[] value)
         {
-            this.first = first;
-            this.second = second;
-            this.third = third;
+            this.value = value;
         }
 
-        public static T Max (T first, T second, T third) 
+        public T[] sort(T[] values)
         {
-            if (first.CompareTo(second)>= 0 && first.CompareTo(third) >= 0)
-            {
-                return first;
-            }
-            else if (second.CompareTo(first) >= 0 && second.CompareTo(third) >= 0)
-            {
-                return second;
-            }
-            else
-            {
-                return third;
-            }
+            Array.Sort(values);
+            return values;
+        }
+
+        public T MaxValue(params T[] values)
+        {
+            var sorted_values  = sort(values);
+            return sorted_values[value.Length-1];
         }
 
         public T MaxMethod()
         {
-            T max = FindMax<T>.Max(this.first,this.second,this.third);
+            var max = MaxValue(this.value);
             return max;
+        }
+
+        public void PrintMaxValue()
+        {
+            var max = MaxValue(this.value);
+            Console.WriteLine("Maximum Value is = "+max);
         }
 
         
